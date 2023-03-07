@@ -18,6 +18,7 @@ function App() {
           <Select variant="outlined" value="abc">
             {/* Loop through all the countries and show a drop down list of the options */}
 
+            {/* Writing JavaScript in HTML using curly brackets */}
             {
               countries.map(country => (
                 <MenuItem value={country}>{country}</MenuItem>
