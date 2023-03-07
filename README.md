@@ -1,6 +1,6 @@
 # Link on Video
 
-https://www.youtube.com/watch?v=cF3pIMJUZxM
+[![Watch the video](https://img.youtube.com/vi/cF3pIMJUZxM/maxresdefault.jpg)](https://youtu.be/cF3pIMJUZxM)
 
 # Getting Started with Create React App
 
