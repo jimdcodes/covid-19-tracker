@@ -1,10 +1,22 @@
+import { FormControl, MenuItem, Select } from '@mui/material';
 import React from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="app">
-      <h1>Lets build a COVID 19 tracker!</h1>
+      <h1>COVID-19 TRACKER</h1>
+      <FormControl className="app__dropdown">
+        <Select
+        variant="outlined"
+        value="abc"
+        >
+          <MenuItem value="worldwide">Worldwide</MenuItem>
+          <MenuItem value="worldwide">Option two</MenuItem>
+          <MenuItem value="worldwide">Worldwide</MenuItem>
+          <MenuItem value="worldwide">Worldwide</MenuItem>
+        </Select>
+      </FormControl>
 
       {/* Header */}
       {/* Title + Select input dropdown field */}
@@ -16,8 +28,7 @@ function App() {
       {/* Table */}
       {/* Graph */}
 
-      {/* Map */}
-      
+      {/* Map */}      
     </div>
   );
 }
