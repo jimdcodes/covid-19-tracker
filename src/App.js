@@ -18,7 +18,7 @@ function App() {
   useEffect (() => {
     // async -> send a request, wait for it, do something with it
     const getCountriesData = async () => {
-      await fetch ("https://disease.sh/docs/#/COVID-19:%20Worldometers/get_v3_covid_19_countries") // Wait, then fetch from link
+      await fetch ("https://disease.sh/v3/covid-19/countries") // Wait, then fetch from link
       .then((response) => response.json()) // Get entire response, then just take json of it
       .then((data) => {
         const countries = data.map((country) => ( // Going through every country and return the following:
