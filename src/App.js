@@ -17,7 +17,7 @@ function App() {
   // when the component loads and not again after
   useEffect (() => {
     // async -> send a request, wait for it, do something with it
-    const getCountriesData = asyn () => {
+    const getCountriesData = async () => {
       await fetch ("https://disease.sh/docs/#/COVID-19:%20Worldometers/get_v3_covid_19_countries") // Wait, then fetch from link
       .then((response) => response.json()) // Get entire response, then just take json of it
       .then((data) => {
