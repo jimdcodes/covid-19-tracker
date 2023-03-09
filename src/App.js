@@ -1,5 +1,5 @@
 import { FormControl, MenuItem, Select } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
       .then((response) => response.json()) // Get entire response, then just take json of it
       .then((data) => {
         const countries = data.map((country) => ({ // Going through every country and return the following:          
-            name: country.country // Country value (United States, United Kingdom) and assigning it name key
-            value: country.countryInfo.iso2 // UK, USA, FR
+            name: country.country, // Country value (United States, United Kingdom) and assigning it name key
+            value: country.countryInfo.iso2, // UK, USA, FR
           }));
 
           setCountries(countries);
