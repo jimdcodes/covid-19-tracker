@@ -9,6 +9,20 @@ function App() {
 
   // STATE = How to write a variable in REACT
 
+  // https://disease.sh/docs/#/COVID-19:%20Worldometers/get_v3_covid_19_countries
+  
+  /* USEEFFECT = runs a piece of code based on a given condition */
+
+  // The code inside here will run once
+  // when the component loads and not again after
+  useEffect (() => {
+    // async -> send a request, wait for it, do something with it
+    const getCountriesData = asyn () => {
+      await fetch ("https://disease.sh/docs/#/COVID-19:%20Worldometers/get_v3_covid_19_countries")
+      .then((response) => response.json()) // Get entire response, then just take json of it
+    }
+  }, []);
+
   return (
     <div className="app">      
       <div className="app__header">
@@ -18,9 +32,9 @@ function App() {
           <Select variant="outlined" value="abc">
             {/* Loop through all the countries and show a drop down list of the options */}
 
-            {/* Writing JavaScript in HTML using curly brackets */}
+            {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
             {
-              countries.map(country => (
+              countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
                 <MenuItem value={country}>{country}</MenuItem>
               ))
             }
