@@ -1,6 +1,7 @@
 import { FormControl, MenuItem, Select } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import InfoBox from './InfoBox'
+import InfoBox from './InfoBox';
+import Map from './Map';
 import './App.css';
 
 function App() {
@@ -37,39 +38,43 @@ function App() {
   }
 
   return (
-    <div className="app">      
-      <div className="app__header">
-        <h1>COVID-19 TRACKER</h1>
-        {/* Adding dropdown */}
-        <FormControl className="app__dropdown">
-          <Select variant="outlined" onChange={onCountryChange} value={country}>
-            {/* Loop through all the countries and show a drop down list of the options */}
-            {/* Default value is Worldwide before selecting anything */}
-            <MenuItem value="worldwide">Worldwide</MenuItem>
+    <div className="app">
+      <div className="app__left">
+        <div className="app__header">
+          <h1>COVID-19 TRACKER</h1>
+          {/* Adding dropdown */}
+          <FormControl className="app__dropdown">
+            <Select variant="outlined" onChange={onCountryChange} value={country}>
+              {/* Loop through all the countries and show a drop down list of the options */}
+              {/* Default value is Worldwide before selecting anything */}
+              <MenuItem value="worldwide">Worldwide</MenuItem>
 
-            {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
-            {countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))}
-          </Select>
-        </FormControl>
+              {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
+              {countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
+                  <MenuItem value={country.value}>{country.name}</MenuItem>
+                ))}
+            </Select>
+          </FormControl>
+        </div>
+
+        <div className="app__stats">
+          <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
+          <InfoBox title="Recovered" cases={1234} total={3000} />
+          <InfoBox title="Deaths" cases={12345} total={4000} />
+        </div>  
+
+        {/* Header */}
+        {/* Title + Select input dropdown field */}
+
+        
+
+        {/* Table */}
+        {/* Graph */}
+
+        {/* Map */}
+        <Map />
       </div>
-
-      <div className="app__stats">
-        <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
-        <InfoBox title="Recovered" cases={1234} total={3000} />
-        <InfoBox title="Deaths" cases={12345} total={4000} />
-      </div>  
-
-      {/* Header */}
-      {/* Title + Select input dropdown field */}
-
-      
-
-      {/* Table */}
-      {/* Graph */}
-
-      {/* Map */}      
+     
     </div>
     
   );
