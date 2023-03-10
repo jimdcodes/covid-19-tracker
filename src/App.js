@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [countries, setCountries] = useState([
-    'USA','UK','INDIA'
-  ]);
+  const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState(['worldwide']);
 
   // STATE = How to write a variable in REACT
 
@@ -39,21 +38,15 @@ function App() {
         <h1>COVID-19 TRACKER</h1>
         {/* Adding dropdown */}
         <FormControl className="app__dropdown">
-          <Select variant="outlined" value="abc">
+          <Select variant="outlined" value={country}>
             {/* Loop through all the countries and show a drop down list of the options */}
 
-            {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
-            {
-              countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              ))
-            }
-
-            {/* Dropdown choices */}
-            {/* <MenuItem value="worldwide">Worldwide</MenuItem>
-            <MenuItem value="worldwide">Option two</MenuItem>
             <MenuItem value="worldwide">Worldwide</MenuItem>
-            <MenuItem value="worldwide">Worldwide</MenuItem> */}
+
+            {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
+            {countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
+                <MenuItem value={country.value}>{country.name}</MenuItem>
+              ))}
           </Select>
         </FormControl>
       </div>      
