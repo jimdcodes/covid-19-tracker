@@ -28,3 +28,9 @@ body {
   /*Pushes space between evenly*/
   justify-content: space-between;
 }
+
+@media (max-width: 445px) {
+  .app {
+    flex-direction: column;
+  }
+}
