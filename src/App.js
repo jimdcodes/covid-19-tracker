@@ -52,20 +52,25 @@ function App() {
               ))}
           </Select>
         </FormControl>
-      </div>      
+      </div>
+
+      <div className="app__stats">
+        {/* InfoBoxes title="Coronavirus cases" */}
+        {/* InfoBoxes title="Coronavirus recoveries" */}
+        {/* InfoBoxes */}
+      </div>  
 
       {/* Header */}
       {/* Title + Select input dropdown field */}
 
-      {/* InfoBoxes */}
-      {/* InfoBoxes */}
-      {/* InfoBoxes */}
+      
 
       {/* Table */}
       {/* Graph */}
 
       {/* Map */}      
     </div>
+    
   );
 }
 
