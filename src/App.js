@@ -29,6 +29,8 @@ function App() {
           setCountries(countries);
       });
     };
+
+    getCountriesData(); // Calls the function
   }, []);
 
   return (
