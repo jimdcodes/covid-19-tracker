@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(['worldwide']);
+  const [countryInfo, setCountryInfo] = useState({});
 
   // STATE = How to write a variable in REACT
 
@@ -33,8 +34,21 @@ function App() {
   }, []);
 
   const onCountryChange = async (event) => { // For every event, pulls the target value
-    const countryCode = event.target.value;
-    setCountry(countryCode); // Now when event occurs, output is countryCode for the dropdown
+    const countryCode = event.target.value;     
+
+    // If URL equals worldwide, then all, else specific country code | backtick for Javascript
+    const url = countryCode === "worldwide"
+      ? "https://disease.sh/v3/covid-19/all"
+      : `https://disease.sh/v3/covid-19/countries/${countryCODE}`
+
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Now when event occurs, output is countryCode for the dropdown
+      setCountry(countryCode);
+      // All of the data from the country response
+      setCountryInfo(data);
+    })
   }
 
   return (
