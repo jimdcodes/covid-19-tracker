@@ -6,6 +6,13 @@ body {
   background-color: #f5f6fa;
 }
 
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  /* To stop the content from touching top */
+  padding: 20px;
+}
+
 .app__header {
   /*Forces this class into one row*/
   display: flex;
