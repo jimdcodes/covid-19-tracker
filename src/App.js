@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, Select } from '@mui/material';
+import { FormControl, MenuItem, Select, Card, CardContent } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import InfoBox from './InfoBox';
 import Map from './Map';
@@ -69,10 +69,14 @@ function App() {
         {/* Map */}
         <Map />
       </div>
-      <div className="app__right">
-        {/* Table */}
-        {/* Graph */}
-      </div>     
+      <Card className="app__right">
+        <CardContent>
+          <h3>Live Cases by Country</h3>
+          {/* Table */}
+          <h3>Worldwide New Cases</h3>
+          {/* Graph */}
+        </CardContent>        
+      </Card>     
     </div>
     
   );
