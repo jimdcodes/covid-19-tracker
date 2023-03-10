@@ -22,6 +22,11 @@ body {
   justify-content: space-between;
 }
 
+.app__left {
+  /* LEft box takes 90% of entire box no matter what */
+  flex: 0.9;
+}
+
 .app__stats {
   /*Forces this class into one row*/
   display: flex;
