@@ -64,17 +64,15 @@ function App() {
         </div>  
 
         {/* Header */}
-        {/* Title + Select input dropdown field */}
-
-        
-
-        {/* Table */}
-        {/* Graph */}
+        {/* Title + Select input dropdown field */}        
 
         {/* Map */}
         <Map />
       </div>
-     
+      <div className="app__right">
+        {/* Table */}
+        {/* Graph */}
+      </div>     
     </div>
     
   );
