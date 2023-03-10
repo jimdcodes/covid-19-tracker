@@ -24,18 +24,15 @@ function App() {
             name: country.country, // Country value (United States, United Kingdom) and assigning it name key
             value: country.countryInfo.iso2, // UK, USA, FR
           }));
-
           setCountries(countries);
       });
     };
-
     getCountriesData(); // Calls the function
   }, []);
 
   const onCountryChange = async (event) => { // For every event, pulls the target value
     const countryCode = event.target.value;
-
-    setCountry(countryCode);
+    setCountry(countryCode); // Now when event occurs, output is countryCode for the dropdown
   }
 
   return (
@@ -46,7 +43,7 @@ function App() {
         <FormControl className="app__dropdown">
           <Select variant="outlined" onChange={onCountryChange} value={country}>
             {/* Loop through all the countries and show a drop down list of the options */}
-
+            {/* Default value is Worldwide before selecting anything */}
             <MenuItem value="worldwide">Worldwide</MenuItem>
 
             {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
