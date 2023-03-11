@@ -5,6 +5,7 @@ import Map from './Map';
 import Table from './Table';
 import './App.css';
 import './Table.css';
+import { sortData } from './util';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -36,6 +37,7 @@ function App() {
             name: country.country, // Country value (United States, United Kingdom) and assigning it name key
             value: country.countryInfo.iso2, // UK, USA, FR
           }));
+          const sortedData = sortData(data);
           setTableData(data);
           setCountries(countries);
       });
