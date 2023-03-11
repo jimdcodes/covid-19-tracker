@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Line } from "react-chartjs-2";
 
 function LineGraph() {
@@ -11,12 +11,25 @@ function LineGraph() {
             console.log(data);
         });
     }, []);
+
+    const buildChartData = (data, casesType = "cases") => {
+        const chartData = [];
+        let lastDataPoint;
+        data[casesType].forEach(date => {
+            if (lastDataPoint) {
+                const newDataPoint = {
+                    x: date,
+                    y: data[casesType][date] - lastDataPoint
+                };
+                chartData.push(newDataPoint);                
+            };
+            lastDataPoint = data[casesType][date];
+        });
+        return chartData;
+    };
   return (
     <div>
-        <Line
-        data
-        options
-        />
+        <h1>test</h1>
     </div>
   )
 }
