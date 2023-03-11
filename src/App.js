@@ -6,6 +6,7 @@ import Table from './Table';
 import './App.css';
 import './Table.css';
 import { sortData } from './util';
+import LineGraph from './LineGraph';
 
 function App() {
   const [countries, setCountries] = useState([]);
