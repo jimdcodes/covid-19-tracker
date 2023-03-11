@@ -39,7 +39,7 @@ function App() {
     // If URL equals worldwide, then all, else specific country code | backtick for Javascript
     const url = countryCode === "worldwide"
       ? "https://disease.sh/v3/covid-19/all"
-      : `https://disease.sh/v3/covid-19/countries/${countryCODE}`
+      : `https://disease.sh/v3/covid-19/countries/${countryCode}`
 
     await fetch(url)
     .then(response => response.json())
@@ -48,8 +48,10 @@ function App() {
       setCountry(countryCode);
       // All of the data from the country response
       setCountryInfo(data);
-    })
-  }
+    });
+  };
+
+  console.log("TEST", setCountryInfo);
 
   return (
     <div className="app">
