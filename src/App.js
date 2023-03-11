@@ -51,7 +51,7 @@ function App() {
     });
   };
 
-  console.log("TEST", setCountryInfo);
+  console.log("TEST", countryInfo);
 
   return (
     <div className="app">
@@ -74,9 +74,9 @@ function App() {
         </div>
 
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases={123} total={2000} />
-          <InfoBox title="Recovered" cases={1234} total={3000} />
-          <InfoBox title="Deaths" cases={12345} total={4000} />
+          <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
+          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>  
 
         {/* Header */}
