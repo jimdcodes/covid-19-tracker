@@ -2,7 +2,9 @@ import { FormControl, MenuItem, Select, Card, CardContent } from '@mui/material'
 import React, { useState, useEffect } from 'react';
 import InfoBox from './InfoBox';
 import Map from './Map';
+import Table from './Table';
 import './App.css';
+import './Table.css';
 
 function App() {
   const [countries, setCountries] = useState([]);
