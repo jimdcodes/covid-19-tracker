@@ -38,7 +38,7 @@ function App() {
             value: country.countryInfo.iso2, // UK, USA, FR
           }));
           const sortedData = sortData(data);
-          setTableData(data);
+          setTableData(sortedData);
           setCountries(countries);
       });
     };
