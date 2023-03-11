@@ -8,6 +8,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(['worldwide']);
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   // STATE = How to write a variable in REACT
 
@@ -16,8 +17,8 @@ function App() {
     .then(response => response.json())
     .then(data => {
       setCountryInfo(data);
-    })
-  })
+    });
+  }, []);
   
   /* USEEFFECT = runs a piece of code based on a given condition */
 
@@ -33,6 +34,7 @@ function App() {
             name: country.country, // Country value (United States, United Kingdom) and assigning it name key
             value: country.countryInfo.iso2, // UK, USA, FR
           }));
+          setTableData(data);
           setCountries(countries);
       });
     };
@@ -102,6 +104,7 @@ function App() {
         <CardContent>
           <h3>Live Cases by Country</h3>
           {/* Table */}
+          <Table countries={tableData} />
           <h3>Worldwide New Cases</h3>
           {/* Graph */}
         </CardContent>        
