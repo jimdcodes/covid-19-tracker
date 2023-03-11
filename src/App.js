@@ -11,7 +11,13 @@ function App() {
 
   // STATE = How to write a variable in REACT
 
-  // https://disease.sh/docs/#/COVID-19:%20Worldometers/get_v3_covid_19_countries
+  useEffect (() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+    .then(response => response.json())
+    .then(data => {
+      setCountryInfo(data);
+    })
+  })
   
   /* USEEFFECT = runs a piece of code based on a given condition */
 
@@ -50,8 +56,6 @@ function App() {
       setCountryInfo(data);
     });
   };
-
-  console.log("TEST", countryInfo);
 
   return (
     <div className="app">
