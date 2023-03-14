@@ -58,12 +58,14 @@ function App() {
       : `https://disease.sh/v3/covid-19/countries/${countryCode}`
 
     await fetch(url)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       // Now when event occurs, output is countryCode for the dropdown
       setCountry(countryCode);
       // All of the data from the country response
       setCountryInfo(data);
+      setMapCenter([data.countryInfo.lat, data.countryInfo.lng]);
+      setMapZoom(4);
     });
   };
 
