@@ -16,13 +16,14 @@ function App() {
   const [tableData, setTableData] = useState([]);
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   // STATE = How to write a variable in REACT
 
   useEffect (() => {
     fetch("https://disease.sh/v3/covid-19/all")
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       setCountryInfo(data);
     });
   }, []);
@@ -41,8 +42,9 @@ function App() {
             name: country.country, // Country value (United States, United Kingdom) and assigning it name key
             value: country.countryInfo.iso2, // UK, USA, FR
           }));
-          const sortedData = sortData(data);
+          let sortedData = sortData(data);
           setTableData(sortedData);
+          setMapCountries(data);
           setCountries(countries);
       });
     };
@@ -55,7 +57,7 @@ function App() {
     // If URL equals worldwide, then all, else specific country code | backtick for Javascript
     const url = countryCode === "worldwide"
       ? "https://disease.sh/v3/covid-19/all"
-      : `https://disease.sh/v3/covid-19/countries/${countryCode}`
+      : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
     await fetch(url)
     .then((response) => response.json())
@@ -64,10 +66,12 @@ function App() {
       setCountry(countryCode);
       // All of the data from the country response
       setCountryInfo(data);
-      setMapCenter([data.countryInfo.lat, data.countryInfo.lng]);
+      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
       setMapZoom(4);
     });
   };
+
+  console.log("CHECK THIS", mapCenter);
 
   return (
     <div className="app">
@@ -82,7 +86,7 @@ function App() {
               <MenuItem value="worldwide">Worldwide</MenuItem>
 
               {/* Writing JavaScript in HTML using curly brackets AKA JSX */}
-              {countries.map(country => ( // Using ES6 syntax: For every country return, '=>', ...
+              {countries.map((country) => ( // Using ES6 syntax: For every country return, '=>', ...
                   <MenuItem value={country.value}>{country.name}</MenuItem>
                 ))}
             </Select>
@@ -109,6 +113,7 @@ function App() {
 
         {/* Map */}
         <Map
+        countries={mapCountries}
         center={mapCenter}
         zoom={mapZoom}
         />
