@@ -25,25 +25,11 @@ const casesTypeColors = {
 
 export const sortData = (data) => {
     const sortedData = [...data];
-    // One line version
     return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1));
-
-
-    /* Long version
-    sortedData.sort((a, b) => {
-        if (a.cases > b.cases) {
-            return -1;
-        } else {
-            return 1;
-        }
-    });
-    return sortedData;
-    */
 };
 
-// DRAW circles on the map with interactive tooltip
 export const showDataOnMap = (data, casesType="cases") => (
-    data.map(country => ( // For every iteration, each object is a country
+    data.map(country => (
     <Circle
     center={[country.countryInfo.lat, country.countryInfo.long]}
     fillOpacity={0.4}

@@ -3,7 +3,7 @@ import React from 'react'
 function Table({ countries }) {
   return (
     <div className="table">
-        {countries.map(({country, cases}) => ( //Go through all countries, map through them. For every single countries, return the following
+        {countries.map(({country, cases}) => (
             <tr>
                 <td>{country}</td>
                 <td><strong>{cases}</strong></td>

@@ -18,7 +18,6 @@ function Map({ countries, casesType, center, zoom }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        {/* Loop through countries and draw circles on th screen */}
         {showDataOnMap(countries, casesType)}
       </LeafletMap>
     </div>
