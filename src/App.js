@@ -9,6 +9,10 @@ import { sortData, prettyPrintStat } from './util';
 import LineGraph from './LineGraph';
 import "leaflet/dist/leaflet.css";
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(['worldwide']);
@@ -81,18 +85,21 @@ function App() {
 
         <div className="app__stats">
           <InfoBox
+          active={casesType ==="cases"}
           onClick={e => setCasesType("cases")}
           title="Coronavirus Cases"
           cases={countryInfo.todayCases}
           total={countryInfo.cases}
           />
           <InfoBox
+          active={casesType ==="recovered"}
           onClick={e => setCasesType("recovered")}
           title="Recovered"
           cases={countryInfo.todayRecovered}
           total={countryInfo.recovered}
           />
           <InfoBox
+          active={casesType ==="deaths"}
           onClick={e => setCasesType("deaths")}
           title="Deaths"
           cases={countryInfo.todayDeaths}
@@ -112,7 +119,7 @@ function App() {
         <CardContent>
           <h3>Total Cases by Country</h3>
           <Table countries={tableData} />
-          <h3>Worldwide New {casesType}</h3>
+          <h3>Worldwide New {capitalizeFirstLetter(casesType)}</h3>
           <LineGraph/>
         </CardContent>        
       </Card>     
