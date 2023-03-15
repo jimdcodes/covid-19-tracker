@@ -96,7 +96,7 @@ function LineGraph({ casesType }) {
             ],
           }}
           options={options}
-        />
+        ></Line>
       )}
     </div>
   );
