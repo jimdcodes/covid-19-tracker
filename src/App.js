@@ -17,6 +17,7 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
 
   useEffect (() => {
@@ -79,15 +80,21 @@ function App() {
         </div>
 
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases"
+          <InfoBox
+          onClick={e => setCasesType("cases")}
+          title="Coronavirus Cases"
           cases={countryInfo.todayCases}
           total={countryInfo.cases}
           />
-          <InfoBox title="Recovered"
+          <InfoBox
+          onClick={e => setCasesType("recovered")}
+          title="Recovered"
           cases={countryInfo.todayRecovered}
           total={countryInfo.recovered}
           />
-          <InfoBox title="Deaths"
+          <InfoBox
+          onClick={e => setCasesType("deaths")}
+          title="Deaths"
           cases={countryInfo.todayDeaths}
           total={countryInfo.deaths}
           />
