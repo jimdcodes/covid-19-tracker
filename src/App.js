@@ -80,7 +80,7 @@ function App() {
 
         <div className="app__stats">
           <InfoBox title="Coronavirus Cases"
-          cases={prettyPrintStat(countryInfo.todayCases)}
+          cases={countryInfo.todayCases}
           total={countryInfo.cases}
           />
           <InfoBox title="Recovered"

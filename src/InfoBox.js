@@ -12,10 +12,10 @@ function InfoBox({ title, cases, total }) {
                 <strong>{title}</strong>
                 </Typography>
 
-            <h2 className="infoBox__cases">{numeral(cases).format(",0")}</h2>
+            <h2 className="infoBox__cases">+{numeral(cases).format("0.0a")}</h2>
             
             <Typography className="infoBox__total" color="textSecondary">
-                {numeral(total).format(",0")} Total
+                +{numeral(total).format("0.0a")} Total
             </Typography>
         </CardContent>
     </Card>
