@@ -117,7 +117,7 @@ function App() {
       </div>
       <Card className="app__right">
         <CardContent>
-          <h3>Total Cases by Country</h3>
+          <h3>Total {capitalizeFirstLetter(casesType)} by Country</h3>
           <Table countries={tableData} />
           <h3>Worldwide New {capitalizeFirstLetter(casesType)}</h3>
           <LineGraph/>
