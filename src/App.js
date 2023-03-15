@@ -101,6 +101,7 @@ function App() {
         </div>  
         
         <Map
+        casesType={casesType}
         countries={mapCountries}
         center={mapCenter}
         zoom={mapZoom}
@@ -111,7 +112,7 @@ function App() {
         <CardContent>
           <h3>Total Cases by Country</h3>
           <Table countries={tableData} />
-          <h3>Worldwide New Cases</h3>
+          <h3>Worldwide New {casesType}</h3>
           <LineGraph/>
         </CardContent>        
       </Card>     

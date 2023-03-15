@@ -4,9 +4,9 @@ import React from 'react';
 import numeral from 'numeral';
 import "./InfoBox.css";
 
-function InfoBox({ title, cases, total }) {
+function InfoBox({ title, cases, total, ...props }) {
   return (
-    <Card className="infoBox">
+    <Card onClick={props.onClick} className="infoBox">
         <CardContent>
             <Typography className="infoBox__title" color="textSecondary">
                 <strong>{title}</strong>
