@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
+import { Chart as ChartJS } from "chart.js/auto";
 
 const options = {
   legend: {
@@ -83,7 +84,7 @@ function LineGraph({ casesType }) {
   return (
     <div>
       {data?.length > 0 && (
-        <Line
+        <ChartJS
           data={{
             datasets: [
               {
@@ -94,7 +95,7 @@ function LineGraph({ casesType }) {
             ],
           }}
           options={options}
-        ></Line>
+        ></ChartJS>
       )}
     </div>
   );
