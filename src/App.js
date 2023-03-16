@@ -5,7 +5,7 @@ import Map from './Map';
 import Table from './Table';
 import './App.css';
 import './Table.css';
-import { sortData, prettyPrintStat } from './util';
+import { sortData } from './util';
 import LineGraph from './LineGraph';
 import "leaflet/dist/leaflet.css";
 
@@ -48,7 +48,6 @@ function App() {
       });
     };
     getCountriesData();
-    console.log("CHECK THIS", tableData);
   }, []);
 
   const onCountryChange = async (event) => {
