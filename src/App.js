@@ -48,6 +48,7 @@ function App() {
       });
     };
     getCountriesData();
+    console.log("CHECK THIS", tableData);
   }, []);
 
   const onCountryChange = async (event) => {
@@ -65,8 +66,6 @@ function App() {
       setMapZoom(4);
     });
   };
-
-  console.log("CHECK THIS", mapCenter);
 
   return (
     <div className="app">
@@ -118,7 +117,7 @@ function App() {
       <Card className="app__right">
         <CardContent>
           <h3>Total {capitalizeFirstLetter(casesType)} by Country</h3>
-          <Table countries={tableData} />
+          <Table countries={tableData} casesType={casesType} />
           <h3>Worldwide New {capitalizeFirstLetter(casesType)}</h3>
           <LineGraph/>
         </CardContent>        
