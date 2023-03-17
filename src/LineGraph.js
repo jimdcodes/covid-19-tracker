@@ -24,7 +24,7 @@ function LineGraph() {
   const buildChartData = (data, casesType='cases') => {
     let chartData = [];
     let lastDataPoint;
-    data[casesType].forEach(date => {
+    for (let date in data[casesType]){
       if (lastDataPoint) {
         const newDataPoint = {
           x: date,
@@ -33,69 +33,37 @@ function LineGraph() {
         chartData.push(newDataPoint);
       }
       lastDataPoint = data[casesType][date];
-    })
+    }
     return chartData;
   };
 
   // https://disease.sh/v3/covid-19/historical/all?lastdays=30
 
   useEffect(() => {
-    fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=5')
+    fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
       const chartData = buildChartData(data);
       setData(chartData);      
-      console.log("HI", buildChartData(data));
+      //console.log("HI", chartData);
     })
-  }, [])
-
+  }, []);
 
   return (
     <div>
       <h1>Test</h1>
       <Line
       data = {{
-        labels: [45000, 11/24/2023, 11/25/2023],
         datasets: [{
-          labels: 'Sales of the week',
-          data: [6, 3, 9],
+          data: data,
           backgroundColor: "rgba(204, 16, 52, 0.5)",
-          borderColor: "#CC1034"
+          borderColor: "#CC1034",
+          fill: true
         }]
       }}
       options = {{
-        plugins: {
-          legend: false
-        },
-        tooltips: {
-          mode: "index",
-          intersect: false,
-          callbacks: {
-            label: function (tooltipItem, data) {
-              return numeral(tooltipItem.value).format("+0,0");
-            },
-          },
-        },
-        scales: { 
-          xAxes: [{
-            type: "time",
-            time: {
-              format: "MM/DD/YY",
-              tooltipFormat: "ll",
-            },
-          }],
-        yAxes: [{
-            gridLines: {
-              display: false,
-            },
-            ticks: {
-              callback: function (value, index, values) {
-                return numeral(value).format("0a");
-              },
-            },
-          }]
-        }
+        plugins: {legend: false}
       }}
       ></Line>
     </div>
