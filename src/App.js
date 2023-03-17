@@ -41,7 +41,7 @@ function App() {
             name: country.country,
             value: country.countryInfo.iso2,
           }));
-          let sortedData = sortData(data);
+          let sortedData = sortData(data, casesType);
           setTableData(sortedData);
           setMapCountries(data);
           setCountries(countries);
@@ -49,7 +49,7 @@ function App() {
       });      
     };    
     getCountriesData();
-  }, []);
+  }, [casesType]);
 
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
