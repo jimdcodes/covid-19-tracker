@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import numeral from "numeral";
+//import numeral from "numeral";
 import {
   Chart as ChartJS,
   LineElement,
@@ -18,10 +18,10 @@ ChartJS.register(
   Tooltip
 )
 
-function LineGraph() {
+function LineGraph({ casesType }) {
   const [data, setData] = useState({})
 
-  const buildChartData = (data, casesType='cases') => {
+  const buildChartData = (data, casesType = "cases") => {
     let chartData = [];
     let lastDataPoint;
     for (let date in data[casesType]){
@@ -40,15 +40,16 @@ function LineGraph() {
   // https://disease.sh/v3/covid-19/historical/all?lastdays=30
 
   useEffect(() => {
-    fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=30")
+    fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=15")
     .then(response => response.json())
     .then(data => {
-      //console.log(data);
-      const chartData = buildChartData(data);
+      console.log(data);
+      let chartData = buildChartData(data, casesType);
       setData(chartData);      
-      //console.log("HI", chartData);
+      console.log("HI", chartData);
+      console.log("HI2", casesType);
     })
-  }, []);
+  }, [casesType]);
 
   return (
     <div>
