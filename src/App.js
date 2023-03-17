@@ -45,7 +45,7 @@ function App() {
           setTableData(sortedData);
           setMapCountries(data);
           setCountries(countries);
-          console.log("CHECK THIS", tableData);
+          //console.log("CHECK THIS", tableData);
       });      
     };    
     getCountriesData();
@@ -118,8 +118,8 @@ function App() {
         <CardContent>
           <h3>Total {capitalizeFirstLetter(casesType)} by Country</h3>
           <Table countries={tableData} casesType={casesType} />
-          <h3>Worldwide New {capitalizeFirstLetter(casesType)}</h3>
-          <LineGraph/>
+          <h3 className="linegraph__space">Worldwide New {capitalizeFirstLetter(casesType)}</h3>
+          <LineGraph casesType={casesType}/>
         </CardContent>        
       </Card>     
     </div>
