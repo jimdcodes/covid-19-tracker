@@ -40,7 +40,7 @@ function LineGraph() {
   // https://disease.sh/v3/covid-19/historical/all?lastdays=30
 
   useEffect(() => {
-    fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
+    fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=30')
     .then(response => response.json())
     .then(data => {
       //console.log(data);
@@ -52,7 +52,6 @@ function LineGraph() {
 
   return (
     <div>
-      <h1>Test</h1>
       <Line
       data = {{
         datasets: [{
