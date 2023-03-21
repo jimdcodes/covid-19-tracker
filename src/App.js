@@ -84,6 +84,7 @@ function App() {
 
         <div className="app__stats">
           <InfoBox
+          isRed
           active={casesType ==="cases"}
           onClick={e => setCasesType("cases")}
           title="Coronavirus Cases"

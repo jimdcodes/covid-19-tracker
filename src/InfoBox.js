@@ -4,9 +4,10 @@ import React from 'react';
 import numeral from 'numeral';
 import "./InfoBox.css";
 
-function InfoBox({ title, cases, total, ...props }) {
+function InfoBox({ title, cases, isRed, active, total, ...props }) {
   return (
-    <Card onClick={props.onClick} className="infoBox">
+    // If InfoBox is selected, then modify the element infoBox to selected
+    <Card onClick={props.onClick} className={`infoBox ${active && "infoBox--selected"} ${isRed && "infoBox--red"}`}>
         <CardContent>
             <Typography className="infoBox__title" color="textSecondary">
                 <strong>{title}</strong>

@@ -46,8 +46,8 @@ function LineGraph({ casesType }) {
       console.log(data);
       let chartData = buildChartData(data, casesType);
       setData(chartData);      
-      console.log("HI", chartData);
-      console.log("HI2", casesType);
+      //console.log("HI", chartData);
+      //console.log("HI2", casesType);
     })
   }, [casesType]);
 
