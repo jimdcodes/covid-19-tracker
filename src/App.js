@@ -99,6 +99,7 @@ function App() {
           total={countryInfo.recovered}
           />
           <InfoBox
+          isRed
           active={casesType ==="deaths"}
           onClick={e => setCasesType("deaths")}
           title="Deaths"
