@@ -121,7 +121,7 @@ function App() {
           <h3>Total {capitalizeFirstLetter(casesType)} by Country</h3>
           <Table countries={tableData} casesType={casesType} />
           <h3 className="linegraph__space">Worldwide New {capitalizeFirstLetter(casesType)}</h3>
-          <LineGraph casesType={casesType}/>
+          <LineGraph className="app__graph" casesType={casesType}/>
         </CardContent>        
       </Card>     
     </div>

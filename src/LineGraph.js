@@ -18,7 +18,7 @@ ChartJS.register(
   Tooltip
 )
 
-function LineGraph({ casesType }) {
+function LineGraph({ casesType, ...props }) {
   const [data, setData] = useState({})
 
   const buildChartData = (data, casesType = "cases") => {
@@ -52,7 +52,8 @@ function LineGraph({ casesType }) {
   }, [casesType]);
 
   return (
-    <div>
+    // Adding className from app.js and parsing it in here with ...props above
+    <div className={props.className}>
       <Line
       data = {{
         datasets: [{
