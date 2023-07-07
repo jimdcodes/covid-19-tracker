@@ -2,6 +2,8 @@
 
 This project is meant to be used for educational purposes only. It showcases API usage, HTML, CSS, JavaScript, React, and Android Studio. With specific libraries, this project features interactive maps, infobox, linegraphs, and more with a few clicks. 
 
+As of March 9, 2023, the API used in this project is no longer updating any information about COVID 19. Therefore, this is no longer up to date and should not be used for anything other than showcasing.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
