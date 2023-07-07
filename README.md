@@ -1,4 +1,5 @@
 #About
+
 This project is meant to be used for educational purposes only. It showcases API usage, HTML, CSS, JavaScript, React, and Android Studio. With specific libraries, this project features interactive maps, infobox, linegraphs, and more with a few clicks. 
 
 # Getting Started with Create React App
